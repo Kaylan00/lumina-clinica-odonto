@@ -101,11 +101,17 @@ a:focus-visible,button:focus-visible{
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
   padding:22px 48px;
-  transition:background var(--t),box-shadow var(--t),padding var(--t);
+  transition:box-shadow var(--t),padding var(--t);
 }
-.nav.scrolled{
-  background:rgba(245,241,234,.95);
+/* backdrop-filter vai no ::before para não virar containing block dos filhos fixed */
+.nav::before{
+  content:"";position:absolute;inset:0;z-index:-1;
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  background:rgba(245,241,234,.95);
+  opacity:0;transition:opacity var(--t);pointer-events:none;
+}
+.nav.scrolled::before{opacity:1;}
+.nav.scrolled{
   box-shadow:0 1px 0 rgba(31,58,61,.06),0 4px 24px rgba(31,58,61,.05);
   padding:14px 48px;
 }
@@ -557,7 +563,7 @@ footer{background:var(--cream-deep);padding:80px 48px 32px;}
   .nav-links a{font-size:20px;padding:4px 0;}
   .nav-phone{display:none;}
   .nav-cta-btn{display:none;}
-  .burger{display:flex;}
+  .burger{display:flex;position:relative;z-index:600;}
 
   /* Sections */
   section,.testimonials{padding:var(--sp-section-m);}
@@ -602,7 +608,8 @@ footer{background:var(--cream-deep);padding:80px 48px 32px;}
 ──────────────────────────────────────────────────────────── */
 @media(max-width:480px){
   .hero{padding:96px 20px 44px;}
-  .hero h1{font-size:clamp(38px,14vw,52px);}
+  .hero h1{font-size:clamp(36px,13vw,52px);}
+  .hero-sub{font-size:16px;}
   .hero-ctas{flex-direction:column;align-items:stretch;}
   .hero-ctas .btn{justify-content:center;}
   .floating-card{position:relative;bottom:auto;left:auto;right:auto;
@@ -617,6 +624,9 @@ footer{background:var(--cream-deep);padding:80px 48px 32px;}
   .why-img:nth-child(2),.why-img:nth-child(3){aspect-ratio:4/3;}
   .team-grid{grid-template-columns:1fr 1fr;gap:12px;}
   .trust-item:nth-child(4),.trust-item:nth-child(5){display:none;}
+  .section-head h2{font-size:clamp(28px,9vw,44px);}
+  .cta-btns{flex-direction:column;align-items:stretch;}
+  .cta-btns .btn{justify-content:center;}
 }
 </style>
 </head>
