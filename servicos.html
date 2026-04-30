@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Conheça todos os serviços da Lumina Odonto — Clínica Geral, Estética, Implantes, Ortodontia, Endodontia e Odontopediatria em Patrocínio, MG.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23A8B89E'/><text y='.9em' font-size='60' x='18'>🦷</text></svg>">
+<title>Serviços · Lumina Odonto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root{
+  --cream-base:#F5F1EA;--cream-deep:#ECE6DA;
+  --sage:#A8B89E;--sage-deep:#6B8068;
+  --teal-ink:#1F3A3D;--coral:#E8927C;--coral-deep:#d77a64;
+  --stone:#8B8680;--white:#FFFFFF;
+  --radius-lg:32px;--radius-md:16px;--radius-sm:8px;
+  --shadow-sm:0 2px 12px rgba(31,58,61,.06);
+  --shadow-md:0 8px 32px rgba(31,58,61,.1);
+  --shadow-lg:0 24px 64px rgba(31,58,61,.16);
+  --t:.3s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--cream-base);color:var(--teal-ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+address{font-style:normal;}
+a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:4px;}
+
+/* ── UTILITY ── */
+.container{max-width:1320px;margin:0 auto;}
+.eyebrow{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--coral);display:block;margin-bottom:14px;}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:500;letter-spacing:.01em;transition:background var(--t),transform var(--t),box-shadow var(--t),border-color var(--t);white-space:nowrap;font-size:15px;padding:16px 32px;}
+.btn-sm{font-size:14px;padding:12px 24px;}
+.btn-teal{background:var(--teal-ink);color:var(--cream-base);}
+.btn-teal:hover{background:#142729;transform:translateY(-1px);box-shadow:0 8px 28px rgba(31,58,61,.22);}
+.btn-ghost{border:1.5px solid rgba(31,58,61,.2);color:var(--teal-ink);}
+.btn-ghost:hover{border-color:var(--teal-ink);background:rgba(31,58,61,.04);}
+.btn-coral{background:var(--coral);color:var(--teal-ink);font-weight:600;}
+.btn-coral:hover{background:var(--coral-deep);transform:translateY(-1px);box-shadow:0 8px 28px rgba(232,146,124,.32);}
+.btn-outline-cream{border:1.5px solid rgba(245,241,234,.32);color:var(--cream-base);}
+.btn-outline-cream:hover{border-color:var(--cream-base);background:rgba(245,241,234,.08);}
+.btn-arrow{transition:transform var(--t);}
+.btn:hover .btn-arrow{transform:translateX(3px);}
+
+/* ── NAVBAR ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:22px 48px;transition:background var(--t),box-shadow var(--t),padding var(--t);}
+.nav.scrolled{background:rgba(245,241,234,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(31,58,61,.06),0 4px 24px rgba(31,58,61,.05);padding:14px 48px;}
+.nav-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px;}
+.logo{display:inline-flex;align-items:flex-end;gap:6px;flex-shrink:0;}
+.logo-mark{font-family:'Fraunces',serif;font-size:26px;font-weight:500;color:var(--teal-ink);line-height:1;letter-spacing:-.01em;display:inline-flex;align-items:baseline;gap:4px;}
+.logo-mark::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--coral);display:inline-block;margin-bottom:4px;}
+.logo-sub{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--stone);font-weight:500;padding-bottom:4px;}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+.nav-links a{font-size:14px;color:var(--teal-ink);position:relative;padding:6px 0;transition:color var(--t);}
+.nav-links a::after{content:"";position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--coral);transition:width .25s ease;}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-links a.active{color:var(--coral);}
+.nav-right{display:flex;align-items:center;gap:18px;}
+.nav-phone{font-size:13px;color:var(--stone);display:flex;align-items:center;gap:6px;transition:color var(--t);}
+.nav-phone:hover{color:var(--teal-ink);}
+.nav-phone svg{width:14px;height:14px;flex-shrink:0;}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px;margin:-8px;cursor:pointer;border-radius:6px;}
+.burger span{display:block;width:22px;height:1.5px;background:var(--teal-ink);border-radius:2px;transition:all var(--t);}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px);}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px);}
+.nav-backdrop{display:none;position:fixed;inset:0;z-index:498;background:rgba(31,58,61,.42);}
+.nav-backdrop.open{display:block;}
+
+/* ── HERO INTERNO ── */
+.hero-int{
+  padding:160px 48px 80px;
+  background:linear-gradient(160deg,var(--cream-deep) 0%,var(--cream-base) 100%);
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero-int::before{
+  content:"";position:absolute;top:-100px;right:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:var(--sage);opacity:.12;filter:blur(80px);pointer-events:none;
+}
+.hero-int-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;}
+.hero-int h1{
+  font-family:'Fraunces',serif;font-weight:400;
+  font-size:clamp(40px,7vw,72px);
+  line-height:1.05;letter-spacing:-.025em;
+  margin-bottom:20px;
+}
+.hero-int h1 em{font-style:italic;color:var(--sage-deep);}
+.hero-int p{font-size:18px;color:var(--stone);line-height:1.6;max-width:520px;margin:0 auto 32px;}
+.hero-int .btn{margin:0 auto;}
+
+/* ── SECTION BASE ── */
+section{padding:100px 48px;}
+.section-head{text-align:center;margin-bottom:72px;}
+.section-head h2{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,52px);font-weight:500;line-height:1.1;letter-spacing:-.02em;max-width:580px;margin:0 auto;}
+.section-head h2 em{font-style:italic;color:var(--sage-deep);}
+.section-head p{font-size:17px;color:var(--stone);max-width:560px;margin:16px auto 0;line-height:1.65;}
+
+/* ── SERVICES DETAIL ── */
+.service-detail{
+  display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;
+  padding-bottom:80px;border-bottom:1px solid rgba(31,58,61,.08);margin-bottom:80px;
+}
+.service-detail:last-child{padding-bottom:0;border-bottom:none;margin-bottom:0;}
+.service-detail.reverse .sd-visual{order:-1;}
+
+.sd-text .service-icon{
+  width:56px;height:56px;border-radius:50%;background:var(--sage);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--cream-base);margin-bottom:24px;
+}
+.sd-text .service-icon svg{width:26px;height:26px;stroke-width:1.5;}
+.sd-text h2{
+  font-family:'Fraunces',serif;font-size:clamp(26px,4vw,40px);
+  font-weight:500;line-height:1.1;letter-spacing:-.02em;margin-bottom:18px;
+}
+.sd-text h2 em{font-style:italic;color:var(--sage-deep);}
+.sd-text>p{font-size:16px;color:var(--stone);line-height:1.75;margin-bottom:24px;}
+.sd-includes{margin-bottom:32px;}
+.sd-includes h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--teal-ink);margin-bottom:14px;}
+.sd-includes ul{list-style:none;}
+.sd-includes li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:15px;color:var(--teal-ink);padding:8px 0;
+  border-bottom:1px solid rgba(31,58,61,.06);
+}
+.sd-includes li:last-child{border-bottom:none;}
+.sd-includes .dot{
+  width:18px;height:18px;min-width:18px;border-radius:50%;
+  background:rgba(168,184,158,.3);
+  display:flex;align-items:center;justify-content:center;
+  margin-top:2px;
+}
+.sd-includes .dot::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage-deep);}
+
+.sd-visual{border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;}
+.sd-visual img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.sd-visual:hover img{transform:scale(1.03);}
+
+/* ── CTA FINAL ── */
+.cta-final{background:var(--teal-ink);text-align:center;}
+.cta-final h2{font-family:'Fraunces',serif;font-size:clamp(40px,6vw,68px);font-weight:400;line-height:1.05;letter-spacing:-.025em;color:var(--cream-base);margin-bottom:22px;}
+.cta-final h2 em{font-style:italic;color:var(--coral);}
+.cta-final p{font-size:18px;color:rgba(245,241,234,.75);max-width:500px;margin:0 auto 40px;line-height:1.6;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+/* ── FOOTER ── */
+footer{background:var(--cream-deep);padding:80px 48px 32px;}
+.footer-grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(31,58,61,.1);}
+.footer-logo{margin-bottom:18px;display:inline-flex;}
+.footer-tag{font-size:14px;color:var(--stone);max-width:280px;margin-bottom:24px;line-height:1.6;}
+.footer-social{display:flex;gap:10px;}
+.footer-social a{width:36px;height:36px;border-radius:50%;background:rgba(31,58,61,.08);display:flex;align-items:center;justify-content:center;color:var(--teal-ink);transition:background var(--t),color var(--t);}
+.footer-social a:hover{background:var(--sage);color:var(--cream-base);}
+.footer-social svg{width:16px;height:16px;}
+.footer-col h5{font-family:'Fraunces',serif;font-size:16px;font-weight:500;margin-bottom:18px;color:var(--teal-ink);}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:10px;}
+.footer-col a{font-size:14px;color:var(--stone);transition:color var(--t);}
+.footer-col a:hover{color:var(--coral);}
+.footer-contact-item{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--stone);margin-bottom:12px;line-height:1.55;}
+.footer-contact-item svg{width:15px;height:15px;margin-top:3px;color:var(--sage-deep);flex-shrink:0;stroke-width:1.8;}
+.footer-contact-item a{color:var(--stone);transition:color var(--t);}
+.footer-contact-item a:hover{color:var(--coral);}
+.footer-bottom{max-width:1320px;margin:30px auto 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--stone);flex-wrap:wrap;gap:8px;}
+
+/* ── ANIMATION ── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.22,1,.36,1) var(--delay,0s),transform .8s cubic-bezier(.22,1,.36,1) var(--delay,0s);}
+.fade-up.visible{opacity:1;transform:none;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .service-detail{grid-template-columns:1fr;gap:40px;}
+  .service-detail.reverse .sd-visual{order:0;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:36px;}
+}
+@media(max-width:768px){
+  .nav,.nav.scrolled{padding:14px 24px;}
+  .nav-links{position:fixed;top:0;right:0;bottom:0;width:min(300px,82vw);flex-direction:column;align-items:flex-start;justify-content:center;gap:24px;padding:80px 32px 40px;background:var(--cream-base);box-shadow:-12px 0 48px rgba(31,58,61,.14);transform:translateX(100%);transition:transform var(--t);z-index:499;display:flex;}
+  .nav-links.open{transform:translateX(0);}
+  .nav-links a{font-size:20px;padding:4px 0;}
+  .nav-phone,.nav-cta-btn{display:none;}
+  .burger{display:flex;}
+  section{padding:64px 24px;}
+  .hero-int{padding:130px 24px 60px;}
+  footer{padding:56px 24px 24px;}
+  .footer-grid{grid-template-columns:1fr;gap:32px;padding-bottom:32px;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+  .section-head{margin-bottom:48px;}
+}
+@media(max-width:480px){
+  .cta-btns{flex-direction:column;align-items:stretch;}
+  .cta-btns .btn{justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Lumina Odonto">
+      <span class="logo-mark">Lumina</span>
+      <span class="logo-sub">Odonto</span>
+    </a>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="servicos.html" class="active">Serviços</a></li>
+      <li><a href="equipe.html">Equipe</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+553438310000" class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (34) 3831-0000
+      </a>
+      <a href="contato.html" class="btn btn-sm btn-teal nav-cta-btn">Agendar consulta</a>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO INTERNO -->
+<section class="hero-int" aria-label="Serviços">
+  <div class="hero-int-inner">
+    <span class="eyebrow">Especialidades</span>
+    <h1>Cuidado completo para <em>cada sorriso</em></h1>
+    <p>Do atendimento preventivo à reabilitação total — nossa equipe oferece o que há de mais moderno em odontologia com acolhimento humano.</p>
+    <a href="contato.html" class="btn btn-teal">Agendar avaliação</a>
+  </div>
+</section>
+
+<!-- SERVIÇOS DETALHADOS -->
+<section id="servicos-detail" aria-labelledby="sd-title">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Nossas especialidades</span>
+      <h2 id="sd-title">O que oferecemos <em>para você</em></h2>
+      <p>Clique em qualquer serviço para saber mais, ou agende uma avaliação gratuita com nossos especialistas.</p>
+    </div>
+
+    <!-- Clínica Geral -->
+    <div class="service-detail fade-up">
+      <div class="sd-text">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5.5C9 2 4 4 4 9c0 3 1 5 2 8s2 6 4 6 2-3 2-3 0 3 2 3 3-3 4-6 2-5 2-8c0-5-5-7-8-3.5z"/></svg>
+        </div>
+        <h2>Clínica <em>Geral</em></h2>
+        <p>A base de um sorriso saudável começa com prevenção. Nossos atendimentos de clínica geral garantem diagnóstico precoce, limpeza profissional e restaurações duradouras — tudo com a tecnologia e o cuidado que você merece.</p>
+        <div class="sd-includes">
+          <h4>O que está incluído</h4>
+          <ul>
+            <li><span class="dot"></span>Consulta e diagnóstico completo com raio-X digital</li>
+            <li><span class="dot"></span>Profilaxia e remoção de tártaro (limpeza)</li>
+            <li><span class="dot"></span>Restaurações em resina composta</li>
+            <li><span class="dot"></span>Tratamento de dentisteria conservadora</li>
+            <li><span class="dot"></span>Aplicação de flúor e selante</li>
+          </ul>
+        </div>
+        <a href="contato.html" class="btn btn-teal btn-sm">Agendar consulta</a>
+      </div>
+      <div class="sd-visual">
+        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=700&q=80" alt="Consultório clínica geral Lumina Odonto" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Estética -->
+    <div class="service-detail reverse fade-up">
+      <div class="sd-text">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l1.5 4.5H18l-3.75 2.75 1.5 4.5L12 12l-3.75 2.75 1.5-4.5L6 7.5h4.5L12 3z"/></svg>
+        </div>
+        <h2>Estética <em>Dental</em></h2>
+        <p>Um sorriso bonito vai além da aparência — é autoestima, confiança e bem-estar. Com as técnicas mais avançadas em estética dental, devolvemos a naturalidade e o brilho que seu sorriso merece.</p>
+        <div class="sd-includes">
+          <h4>O que está incluído</h4>
+          <ul>
+            <li><span class="dot"></span>Clareamento dental (consultório e home)</li>
+            <li><span class="dot"></span>Lentes de contato dental (ultra-finas)</li>
+            <li><span class="dot"></span>Facetas em porcelana e resina</li>
+            <li><span class="dot"></span>Remoção de manchas e diastema</li>
+            <li><span class="dot"></span>Contorno gengival a laser</li>
+          </ul>
+        </div>
+        <a href="contato.html" class="btn btn-teal btn-sm">Agendar avaliação</a>
+      </div>
+      <div class="sd-visual">
+        <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=700&q=80" alt="Estética dental — sorriso natural" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Implantes -->
+    <div class="service-detail fade-up">
+      <div class="sd-text">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="3"/><path d="M12 11v10M8 21h8"/></svg>
+        </div>
+        <h2>Implantes <em>Osseointegrados</em></h2>
+        <p>O implante dentário é a solução mais próxima do dente natural. Com alta taxa de sucesso e materiais de última geração, recuperamos sua função mastigatória, estética e qualidade de vida.</p>
+        <div class="sd-includes">
+          <h4>O que está incluído</h4>
+          <ul>
+            <li><span class="dot"></span>Avaliação e planejamento 3D com tomografia</li>
+            <li><span class="dot"></span>Cirurgia com protocolo de segurança total</li>
+            <li><span class="dot"></span>Implantes de titânio de marcas certificadas</li>
+            <li><span class="dot"></span>Coroas sobre implante em zircônia ou porcelana</li>
+            <li><span class="dot"></span>Protocolo All-on-4 e carga imediata</li>
+          </ul>
+        </div>
+        <a href="contato.html" class="btn btn-teal btn-sm">Solicitar avaliação</a>
+      </div>
+      <div class="sd-visual">
+        <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=700&q=80" alt="Implantes dentários modernos" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Ortodontia -->
+    <div class="service-detail reverse fade-up">
+      <div class="sd-text">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 6h16M4 10h16M4 14h10M4 18h6"/></svg>
+        </div>
+        <h2>Ortodontia e <em>Alinhadores</em></h2>
+        <p>Dentes alinhados para sempre. Seja com aparelhos fixos estéticos ou alinhadores invisíveis, nossos ortodontistas criam tratamentos individualizados com resultados que transformam vidas.</p>
+        <div class="sd-includes">
+          <h4>O que está incluído</h4>
+          <ul>
+            <li><span class="dot"></span>Aparelhos metálicos e estéticos (cerâmica / safira)</li>
+            <li><span class="dot"></span>Alinhadores invisíveis Invisalign</li>
+            <li><span class="dot"></span>Contenção pós-tratamento</li>
+            <li><span class="dot"></span>Ortopedia facial em crianças</li>
+            <li><span class="dot"></span>Planejamento digital do sorriso (DSD)</li>
+          </ul>
+        </div>
+        <a href="contato.html" class="btn btn-teal btn-sm">Iniciar tratamento</a>
+      </div>
+      <div class="sd-visual">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&q=80" alt="Ortodontia alinhadores" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Endodontia -->
+    <div class="service-detail fade-up">
+      <div class="sd-text">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h2>Endodontia <em>sem dor</em></h2>
+        <p>O tratamento de canal moderno nada tem a ver com a experiência do passado. Com microscopia, localização eletrônica e anestesia eficiente, o procedimento é rápido, preciso e confortável.</p>
+        <div class="sd-includes">
+          <h4>O que está incluído</h4>
+          <ul>
+            <li><span class="dot"></span>Diagnóstico com microscopia cirúrgica</li>
+            <li><span class="dot"></span>Tratamento de canal em sessão única (quando possível)</li>
+            <li><span class="dot"></span>Retratamento endodôntico</li>
+            <li><span class="dot"></span>Cirurgia parendodôntica (apicectomia)</li>
+            <li><span class="dot"></span>Anestesia de última geração</li>
+          </ul>
+        </div>
+        <a href="contato.html" class="btn btn-teal btn-sm">Agendar urgência</a>
+      </div>
+      <div class="sd-visual">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=80" alt="Tratamento endodontia moderno" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Odontopediatria -->
+    <div class="service-detail reverse fade-up">
+      <div class="sd-text">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h2>Odontopediatria <em>com carinho</em></h2>
+        <p>O primeiro contato da criança com o dentista define uma vida inteira de hábitos. Nossa abordagem lúdica, paciente e acolhedora garante que os pequenos saiam felizes — e queiram voltar.</p>
+        <div class="sd-includes">
+          <h4>O que está incluído</h4>
+          <ul>
+            <li><span class="dot"></span>Consulta de adaptação para bebês e crianças</li>
+            <li><span class="dot"></span>Prevenção e higiene bucal infantil</li>
+            <li><span class="dot"></span>Selante de fóssulas e fissuras</li>
+            <li><span class="dot"></span>Restaurações em dentes de leite</li>
+            <li><span class="dot"></span>Ortodontia interceptiva e ortopedia facial</li>
+          </ul>
+        </div>
+        <a href="contato.html" class="btn btn-teal btn-sm">Agendar para seu filho</a>
+      </div>
+      <div class="sd-visual">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=700&q=80" alt="Odontopediatria ambiente acolhedor" loading="lazy">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-final" aria-label="Agendar consulta">
+  <div class="container">
+    <h2 class="fade-up">Pronto para o sorriso<br>que <em>você merece?</em></h2>
+    <p class="fade-up">Agende sua avaliação gratuita. Nossos especialistas vão indicar o tratamento ideal para você.</p>
+    <div class="cta-btns fade-up">
+      <a href="contato.html" class="btn btn-coral">
+        Agendar consulta
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://wa.me/553438310000" target="_blank" rel="noopener" class="btn btn-outline-cream">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo footer-logo"><span class="logo-mark">Lumina</span><span class="logo-sub">Odonto</span></a>
+      <p class="footer-tag">Clínica boutique de saúde bucal em Patrocínio, MG. Cuidado que se vê no sorriso.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Navegação</h5>
+      <ul><li><a href="index.html">Início</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="equipe.html">Equipe</a></li><li><a href="contato.html">Contato</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h5>Especialidades</h5>
+      <ul><li><a href="servicos.html">Clínica Geral</a></li><li><a href="servicos.html">Estética Dental</a></li><li><a href="servicos.html">Implantes</a></li><li><a href="servicos.html">Ortodontia</a></li><li><a href="servicos.html">Endodontia</a></li></ul>
+    </div>
+    <address class="footer-col">
+      <h5>Contato</h5>
+      <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Av. Brasil, 142 · Centro<br>Patrocínio, MG – 38800-000</span></div>
+      <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+553438310000">(34) 3831-0000</a></div>
+      <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Seg–Sex 8h–19h · Sáb 8h–13h</span></div>
+    </address>
+  </div>
+  <div class="footer-bottom"><span>© <span id="year"></span> Lumina Odonto · CNPJ 00.000.000/0001-00</span><span>Resp. técnica: Dra. Ana Lúcia · CRO-MG 12345</span></div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+const backdrop = document.createElement('div');
+backdrop.className = 'nav-backdrop';
+document.body.appendChild(backdrop);
+function closeNav() { navLinks.classList.remove('open'); burger.classList.remove('open'); backdrop.classList.remove('open'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; }
+burger.addEventListener('click', () => { const o = navLinks.classList.toggle('open'); burger.classList.toggle('open',o); backdrop.classList.toggle('open',o); burger.setAttribute('aria-expanded',String(o)); document.body.style.overflow = o ? 'hidden' : ''; });
+backdrop.addEventListener('click', closeNav);
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeNav(); });
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }), { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
